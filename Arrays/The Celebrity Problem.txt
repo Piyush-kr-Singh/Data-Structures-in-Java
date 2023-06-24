@@ -1,0 +1,83 @@
+
+
+//User function Template for Java
+
+
+class Solution
+{ 
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(int M[][], int n)
+    {
+    	// code here 
+    	Stack<Integer> s1=new Stack<>();
+    	
+    	for(int i=0; i<n; i++)
+    	{
+    	    s1.push(i);
+    	}
+    	
+    	while(s1.size()>1)
+    	{
+    	    int a=s1.pop();
+    	    
+    	    
+    	    int b=s1.pop();
+    	   
+    	    
+    	    if(M[a][b]==1)
+    	    {
+    	        s1.push(b);
+    	    }
+    	    else
+    	    {
+    	        s1.push(a);
+    	    }
+    	}
+    	
+    	int candi=s1.peek();
+    	
+    	boolean rowCheck=false;
+    	int count0=0;
+    	
+    	for(int i=0; i<n; i++)
+    	{
+    	    if(M[candi][i]==0)
+    	    {
+    	        count0++;
+    	    }
+    	}
+    	
+    	if(count0==n)
+    	{
+    	    rowCheck=true;
+    	}
+    	
+    	
+    	boolean columnCheck=false;
+    	int count1=0;
+    	
+    	for(int i=0; i<n; i++)
+    	{
+    	    if(M[i][candi]==1)
+    	    {
+    	        count1++;
+    	    }
+    	}
+    	
+    	if(count1==n-1)
+    	{
+    	    columnCheck=true;
+    	}
+    	
+    	if(rowCheck == true && columnCheck==true)
+    	{
+    	    return candi;
+    	}
+    	else
+    	{
+    	    return -1;
+    	}
+    }
+    
+    
+}

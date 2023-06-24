@@ -1,0 +1,39 @@
+//User function Template for Java
+
+
+class GFG
+{
+    ArrayList<Long> find(long arr[], int n, int x)
+    {
+        // code here
+        ArrayList<Long> a1=new ArrayList<>();
+        long min=Integer.MAX_VALUE;
+        long max=Integer.MIN_VALUE;
+        
+        for(int i=0; i<n; i++)
+        {
+            if(arr[i]==x)
+            {
+                min=Math.min(min,i);
+                max=Math.max(max,i);
+            }
+        }
+        
+        if(min==Integer.MAX_VALUE)
+        {
+            min=-1;
+        }
+        
+        if(max==Integer.MIN_VALUE)
+        {
+            max=-1;
+        }
+        
+        
+        a1.add(min);
+        a1.add(max);
+        
+        return a1;
+    
+    }
+}
