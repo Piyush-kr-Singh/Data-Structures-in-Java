@@ -1,0 +1,60 @@
+class Intersect
+{
+    //Function to find intersection point in Y shaped Linked Lists.
+	int intersectPoint(Node head1, Node head2)
+	{
+         // code here
+         
+         Node curr1=head1;
+         Node curr2=head2;
+         
+         int count1=0;
+         int count2=0;
+         
+         while(curr1 != null)
+         {
+             count1++;
+             curr1=curr1.next;
+         }
+         
+         while(curr2!=null)
+         {
+             count2++;
+             curr2=curr2.next;
+         }
+         
+         Node head11=head1;
+         Node head22=head2;
+         
+         if(count1>count2)
+         {
+             int temp=count1-count2;
+             
+             for(int i=0; i<temp; i++)
+             {
+                 head11=head11.next;
+             }
+         }
+         else
+         {
+             int temp=count2-count1;
+             
+             for(int i=0; i<temp; i++)
+             {
+                 head22=head22.next;
+             }
+         }
+         
+         while(head11 != null && head22 != null)
+         {
+             if(head11==head22)
+             {
+                 return head11.data;
+             }
+             head11=head11.next;
+             head22=head22.next;
+         }
+         
+         return -1;
+	}
+}

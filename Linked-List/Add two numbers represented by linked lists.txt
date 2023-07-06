@@ -1,0 +1,75 @@
+class Solution{
+    //Function to add two numbers represented by linked list.
+    static Node addTwoLists(Node first, Node second){
+        // code here
+        // return head of sum list
+        
+        Node rev1=reverse(first);
+        Node rev2=reverse(second);
+        
+        int sum=0;
+        int carry=0;
+        
+        Node res=null;
+        Node curr=null;
+        Node temp=null;
+        
+        while(rev1 != null || rev2!= null)
+        {
+            sum=carry+(rev1!=null?rev1.data:0)+(rev2!=null?rev2.data:0);
+            carry=(sum>=10)?1:0;
+            sum=sum%10;
+             temp=new Node(sum);
+            
+            if(res==null)
+            {
+                res=temp;
+            }
+            
+            else
+            {
+                curr.next=temp;
+            }
+            curr=temp;
+            
+            if(rev1!= null)
+            {
+                rev1=rev1.next;
+            }
+            
+            if(rev2!= null)
+            {
+                rev2=rev2.next;
+            }
+            
+            
+        }
+        
+        if(carry==1)
+        {
+            temp=new Node(carry);
+            curr.next=temp;
+        }
+        
+        res=reverse(res);
+        return res;
+        
+    }
+    
+    static Node reverse(Node head)
+    {
+        Node curr=head;
+        Node prev=null;
+        
+        while(curr != null)
+        {
+            Node temp=curr.next;
+            curr.next=prev;
+            
+            prev=curr;
+            curr=temp;
+        }
+        
+        return prev;
+    }
+}

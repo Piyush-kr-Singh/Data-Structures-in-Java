@@ -1,0 +1,68 @@
+class Solution
+{
+    public static Node addOne(Node head) 
+    { 
+        //code here.
+        head = reverse(head);
+        Node curr=head;
+        
+        int carry=1;
+        
+        while(curr != null)
+        {
+            if(curr.data == 9 && curr.next==null && carry==1)
+            {
+                Node t=new Node(1);
+                curr.data=0;
+                curr.next=t;
+                carry=0;
+                break;
+            }
+            
+            else if(curr.data ==9 && carry==1)
+            {
+                curr.data = 0;
+                carry=1;
+                curr=curr.next;
+            }
+            
+            else if(curr.data == 9 && carry ==0)
+            {
+                curr.data = curr.data + carry;
+                curr=curr.next;
+            }
+            
+            else
+            {
+                curr.data= curr.data+carry;
+                carry=0;
+                curr=curr.next;
+            }
+        }
+        // if(carry ==1)
+        // {
+        //     Node temp=new Node(1);
+        //     curr.next=temp;
+        // }
+        
+        head=reverse(head);
+        return head;
+    }
+    
+    public static Node reverse(Node curr)
+    {
+        Node curr1= curr;
+        Node prev=null;
+        
+        while(curr1 != null)
+        {
+            Node temp=curr1.next;
+            curr1.next=prev;
+            
+            prev=curr1;
+            curr1=temp;
+        }
+        
+        return prev;
+    }
+}
