@@ -1,0 +1,15 @@
+//clearing the ith bit of a binary number
+//clearing the ith bit to 0 if there is 1
+
+public class Main{
+    public static void main(String[]args)
+    {
+       int a=13;
+       int i=0;
+       
+       int masking= ~(1 << i);
+       
+       int res=a & masking;
+       System.out.println(res);
+    }
+}

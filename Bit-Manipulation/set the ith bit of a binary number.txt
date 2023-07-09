@@ -1,0 +1,16 @@
+//set the ith bit of a binary number
+//set 1 if there is 0 in the ith position
+
+public class Main{
+    public static void main(String[]args)
+    {
+       int a=10;
+       int i=0;
+       
+       int masking = 1 << i;
+       
+       a=a | masking;
+       
+       System.out.println(a);
+    }
+}

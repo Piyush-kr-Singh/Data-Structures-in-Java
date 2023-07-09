@@ -1,0 +1,18 @@
+//checking whether number is odd or even
+
+public class Main{
+    public static void main(String[]args)
+    {
+        int a=5;
+        
+        if((a & 1) == 0000)
+        {
+            System.out.println("even");
+        }
+        else
+        {
+            System.out.println("odd");
+        }
+        
+    }
+}

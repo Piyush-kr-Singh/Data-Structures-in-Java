@@ -1,0 +1,21 @@
+//checking the ith bit of a binary number
+
+public class Main{
+    public static void main(String[]args)
+    {
+       int a=13;
+       int i=1;
+       
+       int masking= 1 << i;
+       
+       if((masking & a) > 0)
+       {
+           System.out.println("output is 1");
+       }
+       
+       else if((masking & a) == 0)
+       {
+           System.out.println("output is 0");
+       }
+    }
+}

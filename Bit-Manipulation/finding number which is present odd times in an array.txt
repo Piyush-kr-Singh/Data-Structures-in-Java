@@ -1,0 +1,13 @@
+//finding number which is present odd times in an array
+
+public class Main{
+    public static void main(String[] args)
+    {
+        int arr[]={1,2,2,3,3,4,4,5,5,5,5};
+        
+        int res=0;
+        res=1^2^2^3^3^4^4^5^5^5^5;
+        
+        System.out.println(res);
+    }
+}
